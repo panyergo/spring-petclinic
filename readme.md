@@ -7,6 +7,8 @@ This document describes the repository and build steps to create the Spring PetC
 The Spring PetClinic application requires Jenkins to build and test the application and Docker to build and scan the image.
 
 
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile.PNG">
+
 
 
 
