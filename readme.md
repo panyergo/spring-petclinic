@@ -1,27 +1,45 @@
 # Spring PetClinic - Technical Task
 
-This document describes the repository and build steps to create the Spring PetClinic app in a deployable image.  The original Spring PetClinic information can be found below.
+This document describes the repository and build steps to create the Spring PetClinic app in a deployable image. The last stage of the pipeline will push the image to docker.io. (The original Spring PetClinic information can be found below for reference.)
 
-## Spring Petclinic Application Architecture
+## Spring Petclinic Application Architecture & Configuration
+The Spring PetClinic application requires Jenkins to build and test the application and Docker to build and scan the image. This Jenkins Pipeline requires configurations for Git, JDK, and Mave.  The following configurations in Jenkins were made:
 
-The Spring PetClinic application requires Jenkins to build and test the application and Docker to build and scan the image.
+### GIT
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile-git-configuration.PNG">
 
+### JDK
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile-jdk-configuration.PNG">
 
+### Maven
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile-maven-configuration.PNG">
+
+## Jenkins Pipeline Configuration
+This project was built using the following Jenkins pipeline configuration
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile-configuration.PNG">
+
+### Jenkins Pipeline Output
+A successful pipeline run should look as follows. NOTE: The last 2 stages - Scan image & Push image have been commented out due to required credentials not available to general users.
 <img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile.PNG">
 
+### Docker Run Commands
+In order to run the Spring Application image you just created, locate the image tar file - demo-[version].tar and copy it to the system where you will run the image/container. Run the following commands:
 
+```
+$ docker load < demo-[version].tar
+$ docker image list
+$ docker run -d -p9090:8080 demo:[version]
+```
+Connect to the Spring PetClinic App using the hostname or IP of the systme running the container - e.g http://localhost:9090
 
-
-
-
-
-
-
-
-
-
-
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 # Spring PetClinic Sample Application [![Build Status](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-projects/spring-petclinic/actions/workflows/maven-build.yml)
 
