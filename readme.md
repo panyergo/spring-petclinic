@@ -2,7 +2,9 @@
 
 This document describes the repository and build steps to create the Spring PetClinic app in a deployable image.  The original Spring PetClinic information can be found below.
 
+## Spring Petclinic Application Architecture
 
+The Spring PetClinic application requires Jenkins to build and test the application and Docker to build and scan the image.
 
 
 
