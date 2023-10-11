@@ -37,6 +37,7 @@ pipeline {
                 def dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
+                sh 'docker save -o demo-$BUILD_NUMBER.tar ' +  registry + ":$BUILD_NUMBER"
             }
         }
 
