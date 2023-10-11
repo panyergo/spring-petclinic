@@ -40,28 +40,28 @@ pipeline {
             }
         }
 
-        stage('Scan image with twistcli') {
-            steps {
-		withCredentials([usernamePassword(credentialsId: 'TLauth', passwordVariable: 'TL_PASS', usernameVariable: 'TL_USER')]) {
-                sh 'curl -k -u $TL_USER:$TL_PASS --output ./twistcli https://console-master-demo2.dyergovich.demo.twistlock.com/api/v1/util/twistcli'
-                sh 'pwd ; chmod a+x ./twistcli'
-                sh "./twistcli images scan --u $TL_USER --p $TL_PASS --address https://console-master-demo2.dyergovich.demo.twistlock.com/ --details \"$registry:$BUILD_NUMBER\""
-                sh 'rm ./twistcli'
-		}
-            }
-        }
+        //stage('Scan image with twistcli') {
+        //    steps {
+	//	withCredentials([usernamePassword(credentialsId: 'TLauth', passwordVariable: 'TL_PASS', usernameVariable: 'TL_USER')]) {
+        //        sh 'curl -k -u $TL_USER:$TL_PASS --output ./twistcli https://console-master-demo2.dyergovich.demo.twistlock.com/api/v1/util/twistcli'
+        //        sh 'pwd ; chmod a+x ./twistcli'
+        //        sh "./twistcli images scan --u $TL_USER --p $TL_PASS --address https://console-master-demo2.dyergovich.demo.twistlock.com/ --details \"$registry:$BUILD_NUMBER\""
+        //        sh 'rm ./twistcli'
+	//	}
+        //    }
+        //}
 
-        stage('Push Image') {
-            steps{
-                script {
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                docker.withRegistry( '', registryCredential ) {
-                //dockerImage.push()
-                dockerImage.push("$BUILD_NUMBER")
-                dockerImage.push("latest")
-                }
-                }
-            }
-        }
+        //stage('Push Image') {
+        //    steps{
+        //        script {
+        //        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        //        docker.withRegistry( '', registryCredential ) {
+        //        //dockerImage.push()
+        //        dockerImage.push("$BUILD_NUMBER")
+        //        dockerImage.push("latest")
+        //        }
+        //        }
+        //    }
+        //}
     }
 }
