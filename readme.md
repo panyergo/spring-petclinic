@@ -16,7 +16,7 @@ The Spring PetClinic application requires Jenkins to build and test the applicat
 
 ## Jenkins Pipeline Configuration
 This project was built using the following Jenkins pipeline configuration
-<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipeline-Jenkinsfile-configuration.PNG">
+<img src="https://raw.githubusercontent.com/panyergo/spring-petclinic/main/mySpringPipelin-Jenkinsfile-configuration.PNG">
 
 ### Jenkins Pipeline Output
 A successful pipeline run should look as follows. NOTE: The last 2 stages - Scan image & Push image have been commented out due to required credentials not available to general users.
