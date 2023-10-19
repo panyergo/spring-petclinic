@@ -52,6 +52,24 @@ pipeline {
             }
         }
 
+        stage('Scan Compute Plugin') {
+            steps {
+                // Scan the image
+                prismaCloudScanImage ca: '',
+                cert: '',
+                dockerAddress: 'unix:///var/run/docker.sock',
+                //image: 'test/test-image*',
+                image: '\"$registry:$BUILD_NUMBER\"',
+                key: '',
+                logLevel: 'info',
+                podmanPath: '',
+                // The project field below is only applicable if you are using Prisma Cloud Compute Edition and have set up projects (multiple consoles) on Prisma Cloud.
+                project: '',
+                resultsFile: 'prisma-cloud-scan-results.json',
+                ignoreImageBuildTime:true
+            }
+        }
+            
         stage('Push Image') {
             steps{
                 script {
