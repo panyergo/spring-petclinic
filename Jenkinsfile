@@ -59,7 +59,7 @@ pipeline {
                 cert: '',
                 dockerAddress: 'unix:///var/run/docker.sock',
                 //image: 'test/test-image*',
-                image: registry + ":$BUILD_NUMBER",
+                image: 'yergodav/demo*,
                 key: '',
                 logLevel: 'info',
                 podmanPath: '',
