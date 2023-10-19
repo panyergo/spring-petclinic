@@ -30,7 +30,7 @@ $ docker load < demo-[version].tar
 $ docker image list
 $ docker run -d -p9090:8080 demo:[version]
 ```
-Connect to the Spring PetClinic App using the hostname or IP of the systme running the container - e.g http://localhost:9090
+Connect to the Spring PetClinic App using the hostname or IP of the system running the container - e.g http://localhost:9090
 
 <br />
 <br />
