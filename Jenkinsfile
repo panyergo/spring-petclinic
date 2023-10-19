@@ -69,7 +69,14 @@ pipeline {
                 ignoreImageBuildTime:true
             }
         }
-            
+
+        stage('Push Results') {
+            steps {
+                // push the results
+                   prismaCloudPublish resultsFilePattern: 'prisma-cloud-scan-results.json'
+            }
+        }
+           
         stage('Push Image') {
             steps{
                 script {
